@@ -16,6 +16,17 @@ module Api
       render json: {}
     end
 
+    def update
+      @board = current_user.boards.find(params[:id])
+
+      if @board.update(board_params)
+        render json: @board
+      else
+        render json: @board.error.full_messages, status: :unprocessable_entity
+      end
+
+    end
+
     def index
       @boards = current_user.boards
       render json: @boards
