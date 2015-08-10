@@ -17,14 +17,6 @@ TrelloClone.Routers.Router = Backbone.Router.extend({
     this.swapView(indexView);
   },
 
-  new: function(){
-    var board = new TrelloClone.Models.Board();
-
-    var newView = new TrelloClone.Views.BoardNew({ model: board });
-
-    this.swapView(newView);
-  },
-
   swapView: function(view){
     this.currentView && this.currentView.remove();
 
